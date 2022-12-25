@@ -1,29 +1,48 @@
+@import "./variables.scss";
+
+@mixin base-text-styles(
+  $color,
+  $backgroundColor: transparent,
+  $property: null,
+  $value: null
+) {
+  @if $backgroundColor != transparent {
+    background-color: $backgroundColor;
+  }
+
+  @if ($property != null) {
+    #{$property}: $value;
+  }
+
+  font-size: $base-font-size;
+  margin-bottom: $margin-bottom-font;
+  padding: 8rem;
+  background-color: aqua;
+  border: 1rem solid black;
+  color: $color;
+}
+
 .text {
-    color: green;
-    font-size: 2.43rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  @include base-text-styles(green);
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .text2 {
-    color: rgb(128, 66, 0);
-    font-size: 2.43rem;
-    font-family: fantasy;
+  @include base-text-styles(rgb(128, 66, 0));
+  margin-bottom: $margin-bottom-font;
 }
 
 .text3 {
-    color: green;
-    font-size: 2.43rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  @include base-text-styles(rgb(0, 79, 128), yellow, border, 0.2rem solid black);
+  font-family: cursive;
 }
 
 .text4 {
-    color: rgb(100, 128, 0);
-    font-size: 2.43rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  @include base-text-styles(rgb(100, 128, 0));
+  font-family: monospace;
 }
 
-.text5{
-    color: green;
-    font-size: 2.43rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.text5 {
+  @include base-text-styles(rgb(128, 17, 0));
+  font-family: "Courier New", Courier, monospace;
 }
